@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/entidade/produto_entity.dart';
+import 'package:myapp/models/produto_model.dart';
 import 'package:myapp/home/home_controller.dart';
 import 'package:myapp/produtos/produtos_controller.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   if (ct.validarResposta(context)) {
-                    final product = ProdutosEntity(
+                    final product = ProdutosModel(
                       id: '',
                       nome: ct.nomeCT.text,
                       marca: ct.marcaCT.text,
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                 child: const Text('Adicionar Produto'),
               ),
               Expanded(
-                child: StreamBuilder<List<ProdutosEntity>>(
+                child: StreamBuilder<List<ProdutosModel>>(
                   stream: productController.pegarProduto(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {

@@ -1,11 +1,11 @@
-class ProdutosEntity {
+class ProdutosModel {
   String id;
   String nome;
   String marca;
   int preco;
   int quantidade;
 
-  ProdutosEntity({
+  ProdutosModel({
     required this.id,
     required this.nome,
     required this.marca,
@@ -13,8 +13,8 @@ class ProdutosEntity {
     required this.quantidade,
   });
 
-  factory ProdutosEntity.fromMap(Map<String, dynamic> data, String documentId) {
-    return ProdutosEntity(
+  factory ProdutosModel.fromMap(Map<String, dynamic> data, String documentId) {
+    return ProdutosModel(
       id: documentId,
       nome: data['nome'],
       marca: data['marca'],
