@@ -16,19 +16,19 @@ class ProdutosModel {
   factory ProdutosModel.fromMap(Map<String, dynamic> data, String documentId) {
     return ProdutosModel(
       id: documentId,
-      nome: data['nome'],
-      marca: data['marca'],
-      preco: data['preco'],
-      quantidade: data['quantidade'],
+      nome: data['nome']['stringValue'],
+      marca: data['marca']['stringValue'],
+      preco: int.parse(data['preco']['integerValue']),
+      quantidade: int.parse(data['quantidade']['integerValue']),
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'nome': nome,
-      'marca': marca,
-      'preco': preco,
-      'quantidade': quantidade,
+      'nome': {'stringValue': nome},
+      'marca': {'stringValue': marca},
+      'preco': {'integerValue': preco.toString()},
+      'quantidade': {'integerValue': quantidade.toString()},
     };
   }
 }
